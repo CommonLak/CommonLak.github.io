@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CommonLAK</title>
+    <link rel="icon" href="../../faviconCL.ico" >
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/custom.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script>
+    $("document").ready(init)
+    num = 0
+    </script>
+   
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" title="Go to Homepage" href="../../">CommonLAK</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a id = "hdr" class="navbar-brand page-scroll" title="Go to the Query Page" href="../../search">Search Page</a>
+                <a id = "hdr" class="navbar-brand page-scroll" title="Go to the Visualization Page" href="../../visualize">Viz Page</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Queries</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-heading"></div>
+                <div class="intro-lead-in">Try these fairly different queries.</div>
+                <h4>Note that This page is under constant updation <i class="fa fa-exclamation"></i></h4>
+                <a href="#services" class="page-scroll btn btn-xl">Test</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-subheading text-muted"> Click on any of the queries to select them. You can then copy and paste it into the query box. </h3>
+                </div>
+            </div>
+            <div class="row">
+                This query returns every paper in the dataset with the length of title and the number of authors. 
+                <br /><br />
+                <pre id="selectable1" onclick="selectText('selectable1')">
+select ?paper ?lenoftitle ?numofpersons
+where
+{
+    {
+        select ?paper ?lenoftitle
+        where
+        {
+            ?paper &lt;http://purl.org/dc/elements/1.1/title> ?title . 
+            BIND (STRLEN(?title) as ?lenoftitle)
+        }
+        order by asc(?paper)
+    }
+    {
+        select ?paper (count(?person) as ?numofpersons)
+        where 
+        {
+            ?paper &lt;http://xmlns.com/foaf/0.1/maker> ?person . 
+        }
+        group by ?paper
+        order by asc(?paper)
+    }
+}</pre>   
+            </div>
+            <br /><br />
+            <div class="row">
+                This query returns number of papers per organization. 
+            <br /><br />
+            <pre id="selectable2" onclick="selectText('selectable2')">
+select ?univ (count(?paper) as ?numofpapers) 
+where
+{
+    ?person &lt;http://swrc.ontoware.org/ontology#affiliation> ?univuri . 
+    ?univuri rdfs:label ?univ . 
+    ?person  &lt;http://xmlns.com/foaf/0.1/made> ?paper . 
+}
+group by ?univ
+order by asc(?numofpapers)</pre>                
+            </div>
+            <br /><br />
+            <div class="row">
+                This query returns the number of papers, each author has published. 
+            <br /><br />
+            <pre id="selectable3" onclick="selectText('selectable3')">
+select ?person (count(?paper) as ?numofpapers) 
+where
+{
+    ?person &lt;http://xmlns.com/foaf/0.1/name> ?name .
+    ?person &lt;http://xmlns.com/foaf/0.1/made> ?paper . 
+}
+group by ?person
+order by asc(?numofpapers)</pre>
+            </div>
+            <br /><br />
+            <div class="row">
+                This query returns the number of papers per country
+            <br /><br />
+            <pre id="selectable4" onclick="selectText('selectable4')">
+select ?country (count(distinct ?paper) as ?numofpapers) 
+where
+{
+    ?person &lt;http://xmlns.com/foaf/0.1/based_near> ?country . 
+    ?person &lt;http://xmlns.com/foaf/0.1/made> ?paper . 
+}
+group by ?country
+order by asc(?numofpapers)</pre>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p><a class = "page-scroll btn btn-xl"  href="#page-top" />Back To Top</a></p>
+                <p><a class = "page-scroll btn btn-xl"  href="QueryPage.html;" />Go To Query Page</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                    <span class="copyright">Copyright &copy; Ordell Ugo, PESIT 2015. All rights reserved. No part of this site or its contents may be copied or replicated elsewhere. </span>
+            </div>
+        </div>
+    </footer>
+
+ 
+        
+    <!-- jQuery -->
+    <script src="../../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../../js/classie.js"></script>
+    <script src="../../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../../js/jqBootstrapValidation.js"></script>
+    <script src="../../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../js/agency.js"></script>
+    
+    <script src="../../js/custom.js"></script>
+    <script src="../../js/customquery.js"></script>
+</body>
+</html>
+
+

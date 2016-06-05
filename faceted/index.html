@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CommonLAK</title>
+    <link rel="icon" href="../faviconCL.ico" >
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/custom.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script>
+    hisstate = 0
+    </script>
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" title="Go to Homepage" href="../">CommonLAK</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a id = "hdr" class="navbar-brand page-scroll" title="Go to the Query Page" href="../query">Query Page</a>
+                <a id = "hdr" class="navbar-brand page-scroll" title="Go to the Visualization Page" href="../visualize">Viz Page</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#page-top">Search</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#data">Data</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#results" id="showres">Results</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                
+                <div>
+                    <div class="faceted">
+                            <a class="page-scroll" href="#data"><span class="btn" id = "c" onclick="init('c')">Conference<br />(13)</span></a>
+                            <a class="page-scroll" href="#data"><span class="btn" id = "a" onclick="init('a')">Authors<br />(1214)</span></a>
+                            <a class="page-scroll" href="#data"><span class="btn" id = "o" onclick="init('o')">Organization<br />(369)</span></a>
+                    </div>
+                </div><br />
+                <div class=""><a href="../search" class='btn sidelink'>Use Keyword Search</a></div>
+
+            </div>
+            <div class="intro-heading"></div>
+        </div>
+    </header>
+
+    <section id="data" class="bg-light-gray">
+        <div class="container">
+             
+            <div class="row text-center" id="filloptions">
+                Looks like you have still not selected the type of visualization, Choose a type and click on Continue
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">The results are </h2>
+                    <h3 class="section-subheading text-muted">
+                        <div id = "selectfacet"></div>
+                        <div class="large text-muted" id = "d" />Yet to arrive, Did you <a id="lnq" class="page-scroll" href="#page-top" onclick="$(\'#btt\').click();">search</a> yet? </div>
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p></p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                <p><a id="btt" class = "page-scroll btn btn-xl"  href="#page-top" />Back To Top</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                    <span class="copyright">Copyright &copy; Ordell Ugo, PESIT 2015. All rights reserved. No part of this site or its contents may be copied or replicated elsewhere. </span>
+            </div>
+        </div>
+    </footer>
+
+
+    
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../js/classie.js"></script>
+    <script src="../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../js/jqBootstrapValidation.js"></script>
+    <script src="../js/contact_me.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../js/agency.js"></script>
+    
+    <script src="../js/custom.js"></script>
+    <script src="../js/customfacetedsearch.js"></script>
+    <script src="../jsPDF/jspdf.js"></script>
+    <script src="../jsPDF/FS/FileSaver.min.js"></script>
+    
+    <script src="../jsPDF/plugins/standard_fonts_metrics.js"></script> 
+    <script src="../jsPDF/plugins/split_text_to_size.js"></script>               
+    <script src="../jsPDF/plugins/from_html.js"></script>          
+    <script src="../jsPDF/plugins/cell.js"></script>
+</body>
+</html>
+
+

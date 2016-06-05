@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CommonLAK</title>
+    <link rel="icon" href="../../faviconCL.ico" >
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/custom.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="../../css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script>
+
+    </script>
+
+</head>
+
+<body id="page-top" class="index">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" title="Go to Homepage" href="../../">CommonLAK</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <a id = "hdr" class="navbar-brand page-scroll" title="Go to the Search Page" href="../../search">Search Page</a>
+                <a id = "hdr" class="navbar-brand page-scroll" title="Go to the Query Page" href="../../query">Query Page</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a id = "sample" class="page-scroll" href="#data">Data</a>
+                    </li>
+                    <li>
+                        <a id = "click_graph" class="page-scroll" href="#graph">Graph</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                
+              
+                <div>
+                    <span class = 'b'>Choose a Visualization Type 
+                        <select class = 'c' id = "sel" style="height:40px"> 
+                            <option value="bar">Bar Plot</option>
+                            <option value="line">Line Plot</option>
+                            <option value="pie">Pie Chart</option>
+                            <option value="map">World Map</option>
+                        </select>
+                    </span>
+                </div><br />
+                <div><a class = "page-scroll btn fetch btn-xl"  href="#data" onclick = "init()" />Continue</a></div>
+
+            </div>
+            <div class="intro-heading"></div>
+        </div>
+    </header>
+
+    
+    <!-- Services Section -->
+    <section id="data">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Select Data</h2>
+                    <h3 class="section-subheading text-muted" id="standardtext">The data is precomputed and stored as JSoN. To select the data you can click on <i class="fa fa-star-o"></i>. To visualize the data you can click on <i class="fa fa-hand-o-right"></i>. To download the data instead of visualizing you can click on <i class="fa fa-download"></i>    </h3>
+                </div>
+            </div>
+            <div class="row text-center" id="filloptions">
+                Looks like you have still not selected the type of visualization, Choose a type and click on Continue
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="graph">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Graph</h2>
+                    <div class="large text-muted" id = "d" />Looks like you haven't selected the data for visualization, Choose a <a id="lnq page-scroll" class="page-scroll" href="#data"> dataset above</a> and click on <i class="fa fa-hand-o-right"></i> </div>														
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer id="foot">
+        <div class="container">
+            <div class="row">
+                    <span class="copyright">Copyright &copy; Ordell Ugo, PESIT 2015. All rights reserved. No part of this site or its contents may be copied or replicated elsewhere. </span>
+            </div>
+        </div>
+    </footer>   
+
+
+    
+    <!-- jQuery -->
+    <script src="../../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="../../js/classie.js"></script>
+    <script src="../../js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../../js/jqBootstrapValidation.js"></script>
+    <script src="../../js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../../js/agency.js"></script>
+    
+    <script src="../../js/custom.js"></script>
+    <script src="../../js/customviz.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+    
+    <script src="http://www.amcharts.com/lib/3/ammap.js"></script>
+    <script src="http://www.amcharts.com/lib/3/maps/js/worldLow.js"></script>
+    <script src="http://www.amcharts.com/lib/3/themes/dark.js"></script>
+
+</body>
+</html>
+
+
