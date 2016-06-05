@@ -5,6 +5,7 @@
     });
     function init()
     {
+        hostserverurl = "http://commonlak-bhargavrao.rhcloud.com"
         query  = $('#q').val().replace(/\n/g,' ').replace(/\r/g,' ')
         
         var tmpstr = query.substring(0,query.indexOf('{'))
@@ -36,9 +37,7 @@
     }
     function start()
     {
-        //$('.a').css({'display':'none'});
-        index = ((String)(window.location)).lastIndexOf("/");
-        url = (((String)(window.location)).substring(0,index)+"/First.jsp")
+        url = hostserverurl+"/First.jsp"
         xhr = $.ajax({
                 url:url,
                 type:'POST',
@@ -46,7 +45,7 @@
                 success: display,
                 error: function(jqXHR, textStatus, errorThrown){$('#d').html(jqXHR.responseText)}
                });
-        $('#d').html('<img src="load.gif" height="50px" width="50px"/><br /><input type="button" value="CANCEL REQUEST" onclick="cancel()"/>');
+        $('#d').html('<img src="../img/load.gif" height="50px" width="50px"/><br /><input type="button" value="CANCEL REQUEST" onclick="cancel()"/>');
     }
     function display(data)
     {
@@ -77,14 +76,14 @@
     }    
     function download()
     {
-        $("#download").html('<span onmouseover="download()"> Download data as JSoN  <i class="fa fa-download arrow"></i>&nbsp;&nbsp;<img style="width:30px" src="load.gif"/></span>')
+        $("#download").html('<span onmouseover="download()"> Download data as JSoN  <i class="fa fa-download arrow"></i>&nbsp;&nbsp;<img style="width:30px" src="../img/load.gif"/></span>')
         var obj = getObj()
         var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
         $("#download").html('<a href="data:'+data+'" download="query.json">Download data as JSoN  <i class="fa fa-download arrow"></i></a>')
     }
     function exportdp()
     {
-        $("#exportdp").html('<span onmouseover="exportdp()"> Export JSoN to dpaste <i class="fa fa-share"></i>&nbsp;&nbsp;<img style="width:30px" src="load.gif"/></span>')
+        $("#exportdp").html('<span onmouseover="exportdp()"> Export JSoN to dpaste <i class="fa fa-share"></i>&nbsp;&nbsp;<img style="width:30px" src="../img/load.gif"/></span>')
         var obj = getObj()
            $.ajax({
                     url: "http://dpaste.com/api/v2/",

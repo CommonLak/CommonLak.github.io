@@ -22,10 +22,10 @@
     }
     function start(sample)
     {
+        hostserverurl = "http://commonlak-bhargavrao.rhcloud.com"
         chartype = sample
         //$('.a').css({'display':'none'});
-        index = ((String)(window.location)).lastIndexOf("/");
-        url= (((String)(window.location)).substring(0,index)+"/First.jsp")
+        url = hostserverurl+"/First.jsp"
         switch (sample)
         {
             case 1: $('#d').removeClass('chartdiv')

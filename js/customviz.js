@@ -117,7 +117,7 @@
     {        
     
         filename = getfilename(value)   
-        $("#"+value.target.id.replace("_Down","_ThirdCol_download")).html('<img style="width:15px" src="load.gif"/>')
+        $("#"+value.target.id.replace("_Down","_ThirdCol_download")).html('<img style="width:15px" src="../../img/load.gif"/>')
         $.getJSON(filename, function(obj){
             var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
             $("#"+value.target.id.replace("_Down","_ThirdCol_download")).html('<a class="black" href="data:'+data+'" download="query.json"><i class="fa fa-download minilinks arrow" id="Selected_'+i.replace(/ /g,'_')+'_Down"></i></a>')
