@@ -264,7 +264,7 @@
                      if(otxt.indexOf('reference') > -1)
                         var ihtl = pt+ "<i title = 'Search Google' onclick='searchGoogle(\""+pt+"\")' class='fa fa-google rowload bold'>&nbsp;</i>    "
                      else
-                        var ihtl = "<a class = 'lnk2' title='Search in the "+ort.substring(1)+" list for "+pt+"' target='_blank' href='SearchPage.html?q="+pt+"&s="+ort+"'>"+pt+"<a>"+"</a> <i title = 'Internal Link' onclick='filltext(\""+pt+"\",\""+ort+"\")' class='fa fa-link rowload'></i>"
+                        var ihtl = "<a class = 'lnk2' title='Search in the "+ort.substring(1)+" list for "+pt+"' target='_blank' href='../search?q="+pt+"&s="+ort+"'>"+pt+"<a>"+"</a> <i title = 'Internal Link' onclick='filltext(\""+pt+"\",\""+ort+"\")' class='fa fa-link rowload'></i>"
                      if (otxt.indexOf('paper') > -1)
                         ihtl += "<i title = 'Search Google' onclick='searchGoogle(\""+pt+"\")' class='fa fa-google rowload'>&nbsp;</i>    "
                      console.log(ihtl)

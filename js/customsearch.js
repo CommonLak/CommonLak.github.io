@@ -36,8 +36,8 @@
     }
     function qinit(name,rtype)
     {
-        history.pushState({earname:name,eartyp:rtype}, "page "+hisstate, "SearchPage.html");
-        hisstate+=1
+        //history.pushState({earname:name,eartyp:rtype}, "page "+hisstate, "SearchPage.html");
+        //hisstate+=1
         if ((name.toLowerCase().indexOf("delete") > -1) || (/[%<>\[\]{}]/.test(name)))
         {   
             var injtxt = 'We have taken care of SPARQL Injections. Please do not exploit a educational resource.<br /><br /><br /><a href="http://xkcd.com/327/"><img src="../img/xkcd.png" /></a><br /><br /><br />Kindly <a id="lnq" class="page-scroll" href="#page-top" onclick="$(\'#btt\').click();">search</a> again'
