@@ -5,7 +5,7 @@
     });
     function init()
     {
-        hostserverurl = "http://commonlak-bhargavrao.rhcloud.com"
+        hostserverurl = "http://http://51.254.218.90:8000/CL"
         query  = $('#q').val().replace(/\n/g,' ').replace(/\r/g,' ')
         
         var tmpstr = query.substring(0,query.indexOf('{'))

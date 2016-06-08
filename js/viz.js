@@ -22,7 +22,7 @@
     }
     function start(sample)
     {
-        hostserverurl = "http://commonlak-bhargavrao.rhcloud.com"
+        hostserverurl = "http://http://51.254.218.90:8000/CL"
         chartype = sample
         //$('.a').css({'display':'none'});
         url = hostserverurl+"/First.jsp"
