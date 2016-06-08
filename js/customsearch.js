@@ -31,7 +31,7 @@
     {
         name  = $('#s').val()
         rtype = $('#sel').val()
-        hostserverurl = "http://http://51.254.218.90:8000/CL"
+        hostserverurl = "http://51.254.218.90:8000/CL"
         qinit(name,rtype)
     }
     function qinit(name,rtype)

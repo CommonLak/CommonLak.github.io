@@ -1,7 +1,7 @@
     function init(val)
     {
         $.getJSON("data/faceted_"+val+".json",function(obj){filldata(obj,val)})
-        hostserverurl = "http://http://51.254.218.90:8000/CL"
+        hostserverurl = "http://51.254.218.90:8000/CL"
     }
     function filldata(obj,val)
     {

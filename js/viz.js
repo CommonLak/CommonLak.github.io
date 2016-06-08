@@ -22,7 +22,7 @@
     }
     function start(sample)
     {
-        hostserverurl = "http://http://51.254.218.90:8000/CL"
+        hostserverurl = "http://51.254.218.90:8000/CL"
         chartype = sample
         //$('.a').css({'display':'none'});
         url = hostserverurl+"/First.jsp"
